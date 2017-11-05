@@ -1,0 +1,32 @@
+Description:
+
+This is a simple multithreaded HTTP web server.
+It uses HTTP/1.1 and currently only supports HEAD and GET requests. Persistent connections aren't supported as well.
+
+For downloading compiled program, please refer to the release section.
+
+
+Building from the source:
+
+1) Create a jar file using following maven command from terminal: mvn package
+2) Go into newly created target folder and create config folder inside
+3) Copy contents of src/main/resources into this config folder
+
+
+Running a program:
+
+You can start the server by simply running jar file from the terminal: java -jar file.jar
+(In case of problems, try different port number in config/config.properties file)
+
+
+Notes:
+
+1) You will probably need to change server rootdir from the config. 
+E.g. if you set it to /srv/http/ and put file example.html in there, then you can retrieve this 
+file by making GET request on target: http://hostname:port/example.html (you must specify file, default index isn't supported)
+
+2) You may see WARN log message saying 'IOException: Stream interrupted or empty.' which isn't a bug, it's just for the information.
+
+
+Requirements:
+JRE 8
